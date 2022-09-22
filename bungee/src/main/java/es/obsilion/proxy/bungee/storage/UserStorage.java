@@ -9,6 +9,7 @@ import es.obsilion.proxy.core.database.BaseMongoStorage;
 import org.bson.Document;
 
 import java.util.Collection;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 public class UserStorage implements BaseMongoStorage<BungeeUser> {
@@ -34,13 +35,23 @@ public class UserStorage implements BaseMongoStorage<BungeeUser> {
     }
 
     @Override
-    public BungeeUser load() {
+    public BungeeUser load(String name) {
         return null;
     }
 
     @Override
-    public CompletableFuture<BungeeUser> loadAsync() {
-        return CompletableFuture.supplyAsync(this::load);
+    public BungeeUser load(UUID uuid) {
+        return null;
+    }
+
+    @Override
+    public CompletableFuture<BungeeUser> loadAsync(String name) {
+        return CompletableFuture.supplyAsync(() -> load(name));
+    }
+
+    @Override
+    public CompletableFuture<BungeeUser> loadAsync(UUID uuid) {
+        return CompletableFuture.supplyAsync(() -> load(uuid));
     }
 
     @Override

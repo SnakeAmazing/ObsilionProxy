@@ -1,6 +1,7 @@
 package es.obsilion.proxy.core.database;
 
 import java.util.Collection;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 public interface BaseMongoStorage<T> {
@@ -9,9 +10,13 @@ public interface BaseMongoStorage<T> {
 
     CompletableFuture<Collection<T>> loadAllAsync();
 
-    T load();
+    T load(String name);
 
-    CompletableFuture<T> loadAsync();
+    T load(UUID uuid);
+
+    CompletableFuture<T> loadAsync(String name);
+
+    CompletableFuture<T> loadAsync(UUID uuid);
 
     void save(T t);
 
