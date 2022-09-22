@@ -55,8 +55,8 @@ public class BungeePartyManager implements PartyManager<Party, BungeeUser> {
     public void sendMessage(BungeeUser bungeeUser, String message) {
         Party party = parties.get(bungeeUser.getPartyIdentifier());
 
-        for (String s : party.getAllMembers()) {
-            ProxiedPlayer proxiedPlayer = ProxyServer.getInstance().getPlayer(UUID.fromString(s));
+        for (String stringUUID : party.getAllMembers()) {
+            ProxiedPlayer proxiedPlayer = ProxyServer.getInstance().getPlayer(UUID.fromString(stringUUID));
             proxiedPlayer.sendMessage(message);
         }
     }
