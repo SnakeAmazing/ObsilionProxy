@@ -22,4 +22,6 @@ public interface Party {
     void setLeader(UUID uuid);
 
     Set<String> getMembers();
+
+    Set<String> getAllMembers();
 }

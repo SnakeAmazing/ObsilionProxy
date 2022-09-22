@@ -2,6 +2,7 @@ package es.obsilion.proxy.bungee.party;
 
 import es.obsilion.proxy.core.party.Party;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -64,5 +65,13 @@ public class BungeeParty implements Party {
     @Override
     public Set<String> getMembers() {
         return Set.copyOf(members);
+    }
+
+    @Override
+    public Set<String> getAllMembers() {
+        Set<String> all = new HashSet<>(members);
+        all.add(leader.toString());
+
+        return all;
     }
 }

@@ -1,14 +1,14 @@
 package es.obsilion.proxy.core.party;
 
-public interface PartyManager<T> {
+public interface PartyManager<T, U> {
 
-    Party create(T t);
+    T create(U u);
+
+    boolean has(U u);
 
     void disband(T t);
 
-    void disband(Party party);
+    T get(U u);
 
-    Party get(T t);
-
-    void sendMessage(T t, String message);
+    void sendMessage(U u, String message);
 }
