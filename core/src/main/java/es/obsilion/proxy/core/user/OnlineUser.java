@@ -1,17 +1,19 @@
 package es.obsilion.proxy.core.user;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
 public abstract class OnlineUser extends User {
 
-    private int coins;
-    private final Set<String> friends = new HashSet<>();
+    protected int coins;
+    protected final Set<String> friends;
 
-    public OnlineUser(UUID uuid, String name) {
-        super(uuid, name);
+    public OnlineUser(String documentId, UUID uuid, String name, int coins, Set<String> friends) {
+        super(documentId, uuid, name);
+        this.coins = coins;
+        this.friends = friends;
     }
+
 
     /**
      * Coins Getter

@@ -1,19 +1,25 @@
 package es.obsilion.proxy.bungee.user;
 
+import es.obsilion.proxy.bungee.serialize.BungeeUserSerializable;
+import es.obsilion.proxy.core.serialize.Serializable;
 import es.obsilion.proxy.core.user.OnlineUser;
 
+import java.util.Set;
 import java.util.UUID;
 
-public class BungeeUser extends OnlineUser {
+public class BungeeUser extends OnlineUser implements Serializable<BungeeUserSerializable> {
 
     public String currentServer;
     public String lastServer;
 
     public String partyIdentifier = null;
 
-    public BungeeUser(UUID uuid, String name) {
-        super(uuid, name);
+    public BungeeUser(String documentId, UUID uuid, String name, int coins, Set<String> friends,
+                    String lastServer) {
+        super(documentId, uuid, name, coins, friends);
+        this.lastServer = lastServer;
     }
+
 
     public String getCurrentServer() {
         return currentServer;
@@ -37,5 +43,11 @@ public class BungeeUser extends OnlineUser {
 
     public void setPartyIdentifier(String partyIdentifier) {
         this.partyIdentifier = partyIdentifier;
+    }
+
+    @Override
+    public BungeeUserSerializable serialize() {
+        return new BungeeUserSerializable(documentId, uuid.toString(), name,
+                coins, friends, lastServer);
     }
 }

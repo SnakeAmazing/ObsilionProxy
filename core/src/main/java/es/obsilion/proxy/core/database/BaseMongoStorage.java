@@ -18,6 +18,8 @@ public interface BaseMongoStorage<T> {
 
     CompletableFuture<T> loadAsync(UUID uuid);
 
+    void saveAll();
+
     void save(T t);
 
     void saveAsync(T t);

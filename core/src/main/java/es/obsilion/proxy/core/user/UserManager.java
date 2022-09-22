@@ -1,5 +1,6 @@
 package es.obsilion.proxy.core.user;
 
+import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -20,6 +21,8 @@ public interface UserManager<T> {
     void unLoad(String name);
 
     void unLoad(T t);
+
+    Collection<T> getAll();
 
     Optional<T> get(UUID uuid);
 

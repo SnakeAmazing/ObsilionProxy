@@ -4,13 +4,20 @@ import java.util.UUID;
 
 public class User {
 
-    private final UUID uuid;
+    protected final String documentId;
 
-    private final String name;
+    protected final UUID uuid;
 
-    public User(UUID uuid, String name) {
+    protected final String name;
+
+    public User(String documentId, UUID uuid, String name) {
+        this.documentId = documentId;
         this.uuid = uuid;
         this.name = name;
+    }
+
+    public String getDocumentId() {
+        return documentId;
     }
 
     public String getName() {

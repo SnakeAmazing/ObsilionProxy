@@ -4,10 +4,7 @@ import com.google.inject.Inject;
 import es.obsilion.proxy.bungee.storage.UserStorage;
 import es.obsilion.proxy.core.user.UserManager;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 public class BungeeUserManager implements UserManager<BungeeUser> {
 
@@ -69,6 +66,11 @@ public class BungeeUserManager implements UserManager<BungeeUser> {
         userStorage.saveAsync(bungeeUser);
         users.remove(bungeeUser.getUniqueId());
         namesToUuids.remove(bungeeUser.getName());
+    }
+
+    @Override
+    public Collection<BungeeUser> getAll() {
+        return users.values();
     }
 
     @Override
