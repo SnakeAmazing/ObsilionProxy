@@ -4,6 +4,7 @@ import es.obsilion.proxy.bungee.serialize.BungeeUserSerializable;
 import es.obsilion.proxy.core.serialize.Serializable;
 import es.obsilion.proxy.core.user.OnlineUser;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -13,6 +14,11 @@ public class BungeeUser extends OnlineUser implements Serializable<BungeeUserSer
     public String lastServer;
 
     public String partyIdentifier = null;
+
+    public BungeeUser(String documentId, UUID uuid, String name) {
+        super(documentId, uuid, name, 0, new HashSet<>());
+        this.lastServer = null;
+    }
 
     public BungeeUser(String documentId, UUID uuid, String name, int coins, Set<String> friends,
                     String lastServer) {

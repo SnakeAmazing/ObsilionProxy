@@ -115,4 +115,14 @@ public class UserStorage implements BaseMongoStorage<BungeeUser> {
     public void removeAsync(BungeeUser bungeeUser) {
         CompletableFuture.runAsync(() -> remove(bungeeUser));
     }
+
+    @Override
+    public boolean exists(UUID uuid) {
+        return mongoCollection.find(Filters.eq("uuid", uuid.toString())).first() != null;
+    }
+
+    @Override
+    public boolean exists(String name) {
+        return mongoCollection.find(Filters.eq("name", name)).first() != null;
+    }
 }

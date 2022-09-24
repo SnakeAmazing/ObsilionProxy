@@ -4,11 +4,11 @@ import java.util.UUID;
 
 public class User {
 
-    protected final String documentId;
+    protected String documentId;
 
-    protected final UUID uuid;
+    protected UUID uuid;
 
-    protected final String name;
+    protected String name;
 
     public User(String documentId, UUID uuid, String name) {
         this.documentId = documentId;

@@ -6,7 +6,7 @@ import java.util.UUID;
 public abstract class OnlineUser extends User {
 
     protected int coins;
-    protected final Set<String> friends;
+    protected Set<String> friends;
 
     public OnlineUser(String documentId, UUID uuid, String name, int coins, Set<String> friends) {
         super(documentId, uuid, name);

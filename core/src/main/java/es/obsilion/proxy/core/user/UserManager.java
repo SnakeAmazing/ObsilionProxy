@@ -6,6 +6,8 @@ import java.util.UUID;
 
 public interface UserManager<T> {
 
+    T loadNewUser(String name, UUID uuid);
+
     void load(UUID uuid);
 
     void load(String name);
@@ -15,6 +17,8 @@ public interface UserManager<T> {
     boolean isLoaded(UUID uuid);
 
     boolean isLoaded(T t);
+
+    boolean isRegistered(UUID uuid);
 
     void unLoad(UUID uuid);
 

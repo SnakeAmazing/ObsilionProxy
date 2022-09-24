@@ -27,4 +27,8 @@ public interface BaseMongoStorage<T> {
     void remove(T t);
 
     void removeAsync(T t);
+
+    boolean exists(UUID uuid);
+
+    boolean exists(String name);
 }
