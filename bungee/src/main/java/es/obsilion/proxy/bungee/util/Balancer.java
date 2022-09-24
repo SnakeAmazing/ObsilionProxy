@@ -2,10 +2,10 @@ package es.obsilion.proxy.bungee.util;
 
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
-import net.md_5.bungee.api.connection.Server;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Balancer {
     private static final List<String> lobbies = new ArrayList<>();
@@ -14,7 +14,7 @@ public class Balancer {
 
         ProxyServer.getInstance().getServersCopy()
                 .forEach((s, serverInfo) -> {
-                    if (s.contains("lobby")) lobbies.add(s);
+                    if (s.toLowerCase(Locale.ROOT).contains("lobby")) lobbies.add(s);
                 });
     }
 
